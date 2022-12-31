@@ -17,7 +17,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://vmpetkov90.github.io/REST-country-API-integration/)
+- Live Site URL: [https://vmpetkov90.github.io/REST-country-API-integration/]
 
 
 ### Built with

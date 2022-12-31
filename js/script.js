@@ -1,10 +1,4 @@
-/* -----------------------------------------------
-					Js Main
---------------------------------------------------
-    Template Name: BOX
---------------------------------------------------
 
------------------------------------ */
 (function ($) {
     "use strict";
 
@@ -23,7 +17,7 @@
     function backButton() {
         $(".back").on("click", function (event) {
             const target = event.currentTarget.className;
-            getData("https://restcountries.eu/rest/v2/all", target);
+            getData("https://restcountries.com/v2/all", target);
             $(".loader").addClass("loading");
             $(".search input").val("");
             $(".filter label").text("Filter by Region");
@@ -35,10 +29,10 @@
             let name = $(this).val().toLowerCase();
             if (name.length > 0) {
                 $(".search label").hide();
-                getData("https://restcountries.eu/rest/v2/name/" + name);
+                getData("https://restcountries.com/v2/name/" + name);
             } else {
                 $(".search label").show();
-                getData("https://restcountries.eu/rest/v2/all");
+                getData("https://restcountries.com/v2/all");
             }
             $(".loader").addClass("loading");
             $(".filter label").text("Filter by Region");
@@ -60,7 +54,7 @@
     function filterRegion() {
         $(".dropdown").on("click", "li", function () {
             const region = $(this).text();
-            getData("https://restcountries.eu/rest/v2/region/" + region);
+            getData("https://restcountries.com/v2/region/" + region);
             $(".filter label").text(region);
             $(".search input").val("");
             $(".search label").show();
@@ -129,7 +123,7 @@
         $("main").on("click", ".country, button", function (event) {
             const countryCode = event.currentTarget.attributes["data-code"].value;
             $(".loader").addClass("loading");
-            $.getJSON("https://restcountries.eu/rest/v2/alpha/" + countryCode)
+            $.getJSON("https://restcountries.com/v2/alpha/" + countryCode)
                 .done(function (result) {
                     $(".loader").removeClass("loading");
                     if (event.currentTarget.className === "country") {
@@ -193,11 +187,11 @@
         filterRegion();
         filterDropdown();
         changeMode();
-        getData("https://restcountries.eu/rest/v2/all");
+        getData("https://restcountries.com/v2/all");
         search();
         countryDetails();
         backButton();
-        getRegions("https://restcountries.eu/rest/v2/all?fields=region;")
+        getRegions("https://restcountries.com/v2/all?fields=region;")
     });
 
 })(jQuery);
